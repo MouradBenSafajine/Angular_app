@@ -1,0 +1,31 @@
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
+  <div class="container">
+    <a routerLink="/ecommerce">
+      <img src="https://www.dynamicmarketing.eu/wp-content/uploads/2018/06/ecommerce.logo_.png" alt="E-commerce Logo" width="65" />
+    </a>
+    <div id="navbarResponsive"
+        [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+      <ul class="navbar-nav ms-auto"> <!-- Utilisation de 'ms-auto' pour aligner à droite -->
+        <li class="nav-item active">
+          <a class="nav-link" href="#" (click)="reset()" style="color: black; ">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="row mt-5">
+  <div class="col-md-9">
+    <app-cards #productsC [hidden]="orderFinished" (productAdded)="addProductToCart($event)"></app-cards>
+  </div>
+  <div class="col-md-3">
+    <app-panier
+      [productAdded]="productAdded"
+      (onOrderFinished)=finishOrder($event) #shoppingCartC
+      [hidden]="orderFinished">
+    </app-panier>
+  </div>
+</div>
+</body>

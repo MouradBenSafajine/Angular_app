@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Votre titre ici</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="..." crossorigin="anonymous" />
+</head>
+<body>
+  <div class="all" style="background-image: url('https://img.freepik.com/free-photo/shopping-cart-filled-with-coins-copy-space-background_23-2148305919.jpg?w=1380&t=st=1702416222~exp=1702416822~hmac=4a52cd4cb2e25ccff72b98ae2ee1abe6c5e4a52f0f52585c775765600c345ab4');">
+    <nav class="navbar navbar-light w-100">
+      <div class="container">
+        <a routerLink="/ecommerce">
+          <img src="https://www.dynamicmarketing.eu/wp-content/uploads/2018/06/ecommerce.logo_.png" alt="Logo E-commerce" width="80" />
+        </a>
+        <div class="ml-auto d-flex align-items-center">
+          <a class="p-2 text-dark" routerLink="/products">
+            Produits <!-- Lien vers la page des produits -->
+          </a>
+          <span class="p-2">{{ user?.username }}</span>
+          <button *ngIf="user" (click)="logout()" type="button" class="btn btn-default">
+            Déconnexion
+          </button>
+          <a *ngIf="!user" class="p-2 text-dark" routerLink="/login">
+            <i class="fas fa-sign-in-alt me-1"></i>Se connecter
+          </a>
+          <a *ngIf="!user" class="p-2 text-dark" routerLink="/register">
+            <i class="fas fa-user-plus me-1"></i>S'inscrire
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-5">
+      <div class="mt-5">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
